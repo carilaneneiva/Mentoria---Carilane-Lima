@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentoria - Digital com Propósito | Carilane Lima</title>
+  <meta name="description" content="Construa com propósito. Cresça com estratégia. Mentoria e serviços para criar marcas, negócios e plataformas com significado e conversão." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --text: #2d2d2d;
+      --primary: #483d8b;
+      --secondary: #daa520;
+      --radius: 14px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+      --container: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.5; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width:100%; max-width:var(--container); margin:0 auto; padding:0 20px; }
+    .section { padding: 64px 0; }
+    .section.compact { padding: 48px 0; }
+    .card { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow-sm); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 20px; border-radius:12px; font-weight:600; transition:transform .04s ease, box-shadow .2s ease, background .2s ease, color .2s ease; }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background:var(--primary); color:#fff; box-shadow:var(--shadow-md); }
+    .btn-primary:hover { filter: brightness(1.03); }
+    .btn-secondary { background:#fff; color:var(--primary); border:2px solid var(--secondary); }
+    .btn-secondary:hover { background: rgba(218,165,32,.08); }
+    .stack { display:grid; gap:16px; }
+    .stack-lg { gap:24px; }
+    .stack-xl { gap:32px; }
+    .grid { display:grid; gap:24px; grid-template-columns: repeat(12, 1fr); }
+    .grid-3 > * { grid-column: span 12; }
+    @media (min-width: 768px) {
+      .grid-2 > * { grid-column: span 6; }
+      .grid-3 > * { grid-column: span 4; }
+    }
+    header.hero { padding: 64px 0 32px; background: linear-gradient(180deg, rgba(72,61,139,.06), transparent 60%); }
+    .hero-inner { display:grid; gap:32px; grid-template-columns: repeat(12, 1fr); align-items:center; }
+    .hero-copy { grid-column: span 12; }
+    .hero-badge { display:inline-block; font-weight:600; font-size:14px; background:#fff; border:1px solid rgba(0,0,0,.06); padding:8px 12px; border-radius:999px; box-shadow:var(--shadow-sm); }
+    h1 { font-size: clamp(28px, 4vw, 44px); line-height:1.1; margin: 8px 0 0; }
+    .sub { font-size: clamp(16px, 2.4vw, 18px); color: rgba(0,0,0,.72); }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+    .hero-art { grid-column: span 12; }
+    @media (min-width: 768px) {
+      .hero-copy { grid-column: span 7; }
+      .hero-art { grid-column: span 5; }
+    }
+    .hero-photo { position: relative; overflow: hidden; border-radius: 18px; aspect-ratio: 4/3; background:#fff; box-shadow: var(--shadow-md); }
+    .hero-photo img { width:100%; height:100%; object-fit: cover; }
+    .ribbon { position:absolute; bottom:12px; left:12px; background: rgba(72,61,139,.95); color:#fff; padding:8px 12px; border-radius:10px; font-weight:600; font-size:13px; box-shadow: var(--shadow-sm); }
+    .about .card { padding: 28px; }
+    .about h2 { margin: 0 0 8px; font-size: clamp(22px, 3vw, 28px); }
+    .mentor { padding: 28px; }
+    .mentor-grid { display:grid; gap:24px; grid-template-columns: repeat(12, 1fr); align-items:center; }
+    .mentor-photo { grid-column: span 12; }
+    .mentor-photo .frame { border-radius: 18px; overflow:hidden; aspect-ratio: 1/1; box-shadow: var(--shadow-md); background:#fff; }
+    .mentor-photo img { width:100%; height:100%; object-fit: cover; }
+    .mentor-copy { grid-column: span 12; }
+    @media (min-width: 768px) {
+      .mentor-photo { grid-column: span 4; }
+      .mentor-copy { grid-column: span 8; }
+    }
+    .muted { color: rgba(0,0,0,.72); }
+    .service { padding: 24px; display:grid; gap:14px; border:1px solid rgba(0,0,0,.06); }
+    .service h3 { margin:0; font-size:20px; }
+    .chip { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; background: rgba(72,61,139,.08); color: var(--primary); padding:6px 10px; border-radius:999px; }
+    .social-proof .logo-row { display:flex; gap:20px; flex-wrap:wrap; align-items:center; opacity:.9; }
+    .logo-row img { height:28px; filter: grayscale(1); opacity:.8; }
+    .testimonials { display:grid; gap:20px; grid-template-columns: repeat(12, 1fr); }
+    .testimonial { grid-column: span 12; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:18px; box-shadow: var(--shadow-sm); }
+    @media (min-width: 768px) { .testimonial { grid-column: span 4; } }
+    .testimonial .who { display:flex; align-items:center; gap:12px; margin-top:12px; }
+    .avatar { width:40px; height:40px; border-radius:50%; object-fit:cover; }
+    .cta-final .card { padding: 28px; background: linear-gradient(180deg, #ffffff, rgba(218,165,32,.08)); }
+    .cta-final h2 { margin: 0 0 8px; font-size: clamp(22px, 3vw, 28px); }
+    footer { padding: 40px 0; border-top: 1px solid rgba(0,0,0,.06); }
+    .footer-grid { display:grid; gap:20px; grid-template-columns: repeat(12, 1fr); }
+    .footer-col { grid-column: span 12; }
+    @media (min-width: 768px) { .footer-col { grid-column: span 4; } }
+    .legal a { color: rgba(0,0,0,.8); text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-badge">Mentoria — Digital com Propósito</span>
+        <h1>Construa com Propósito. Cresça com Estratégia.</h1>
+        <p class="sub">Três consultorias e serviços exclusivos para quem quer criar marcas, negócios e plataformas com significado e estrutura sólida.</p>
+        <div class="hero-actions">
+          <a id="cta-primary-hero" class="btn btn-primary" href="#">🚀 Quero começar agora e ver resultados reais!</a>
+          <a id="cta-secondary-hero" class="btn btn-secondary" href="#" target="_blank" rel="noopener">💬 Quero conversar com a mentora e tirar minhas dúvidas primeiro</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-photo">
+          <img id="heroPhoto" src="" alt="Mentora Carilane Lima — Mentoria Digital com Propósito" loading="eager">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section about">
+      <div class="container">
+        <div class="card">
+          <div class="stack-xl">
+            <div class="stack">
+              <h2>Sobre a Mentora & Proposta de Valor</h2>
+              <p>
+                Eu ajudo você a construir marcas e negócios alinhados ao seu propósito, com estratégia clara e foco em resultados reais.
+                A mentoria combina visão humana com frameworks práticos, para você ganhar direção, consistência e presença digital que converte.
+              </p>
+            </div>
+            <div class="grid grid-3">
+              <div class="service card">
+                <span class="chip">Clareza</span>
+                <h3>Direção com Significado</h3>
+                <p>Defina posicionamento, narrativa e metas que refletem seu impacto.</p>
+              </div>
+              <div class="service card">
+                <span class="chip">Estratégia</span>
+                <h3>Plano que Vira Ação</h3>
+                <p>Roadmap enxuto com prioridades semanais e foco no que traz resultado.</p>
+              </div>
+              <div class="service card">
+                <span class="chip">Execução</span>
+                <h3>Presença que Converte</h3>
+                <p>Conteúdo, ofertas e páginas profissionais para aumentar conversões.</p>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a id="cta-primary-about" class="btn btn-primary" href="#">🚀 Quero começar agora e ver resultados reais!</a>
+              <a id="cta-secondary-about" class="btn btn-secondary" href="#" target="_blank" rel="noopener">💬 Quero conversar com a mentora e tirar minhas dúvidas primeiro</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentora -->
+    <section class="section">
+      <div class="container">
+        <div class="card mentor">
+          <div class="mentor-grid">
+            <div class="mentor-photo">
+              <div class="frame">
+                <img id="mentorPhoto" src="" alt="Foto da mentora Carilane Lima" loading="lazy">
+              </div>
+            </div>
+            <div class="mentor-copy">
+              <h2>Carilane Lima</h2>
+              <p class="muted">
+                Estrategista de marca e criadora de plataformas com propósito. Já ajudei empreendedores a saírem da estagnação, estruturarem suas ofertas e lançarem páginas que vendem — sem perder a essência. Minha missão é alinhar intenção, mensagem e execução.
+              </p>
+              <ul class="muted" style="margin:0; padding-left:18px;">
+                <li>+ Estrutura clara de negócio e conteúdo</li>
+                <li>+ Funis simples que geram previsibilidade</li>
+                <li>+ Páginas e mensagens que convertem</li>
+              </ul>
+              <div class="hero-actions" style="margin-top:12px;">
+                <a id="cta-primary-mentor" class="btn btn-primary" href="#">🚀 Quero começar agora</a>
+                <a id="cta-secondary-mentor" class="btn btn-secondary" href="#" target="_blank" rel="noopener">💬 Quero conversar com a mentora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentorias & Serviços -->
+    <section class="section">
+      <div class="container">
+        <div class="stack-lg">
+          <h2 style="margin:0;">Mentorias & Serviços</h2>
+          <p class="muted" style="margin:0;">Escolha o caminho que melhor desbloqueia seu próximo passo.</p>
+          <div class="grid grid-3">
+            <!-- Mentoria Criativa -->
+            <article class="service card" data-service="mentoria_criativa">
+              <span class="chip">CRIATIVO &amp; ESTRATÉGICO</span>
+              <h3>🧠 Mentoria Criativa — Criação e Calendário de Conteúdo</h3>
+              <p class="muted">Desenvolver clareza, constância e autenticidade na comunicação da marca.</p>
+              <div class="stack">
+                <div><strong>Investimento:</strong> R$ 749,00</div>
+                <div>⏱️ 3-4 semanas (4 encontros + acompanhamento)</div>
+                <div>🎯 Ideal para freelancers e empreendedores iniciantes que querem estruturar sua comunicação</div>
+                <div>
+                  <strong>O que você vai receber:</strong>
+                  <ul style="margin:8px 0 0; padding-left:18px;">
+                    <li>4 sessões 1:1 online e personalizadas (1h30 cada)</li>
+                    <li>Definição completa de tom de voz, identidade e pilares de conteúdo</li>
+                    <li>Criação de roteiros e cronograma mensal de postagens</li>
+                    <li>Planejamento estratégico de conteúdo visual (brief para reels, carrosséis e stories)</li>
+                    <li>Acompanhamento semanal e análise de performance por 30 dias</li>
+                    <li>Entrega de planilha modelo e guia de continuidade</li>
+                    <li>Acesso ao grupo exclusivo de mentorados por 60 dias</li>
+                  </ul>
+                  <p style="margin:10px 0 0;"><strong>💡 Bônus estratégico:</strong> Template de calendário no Canva + Kit de templates para stories.</p>
+                </div>
+              </div>
+              <div class="hero-actions" style="margin-top:6px;">
+                <a class="btn btn-primary cta-primary-service" href="#">🚀 Quero começar agora e ver resultados reais!</a>
+                <a class="btn btn-secondary cta-secondary-service" href="#" target="_blank" rel="noopener">💬 Quero conversar com a mentora</a>
+              </div>
+            </article>
+
+            <!-- Mentoria Estratégica -->
+            <article class="service card" data-service="mentoria_estrategica" style="position:relative;">
+              <span class="chip">⭐ POPULAR</span>
+              <h3>💼 Mentoria Estratégica — Negócio e Página Comercial</h3>
+              <p class="muted">Alinhar marca, posicionamento e estratégia de vendas com base no propósito.</p>
+              <div class="stack">
+                <div><strong>Investimento:</strong> R$ 1.449,00</div>
+                <div>⏱️ 5-6 semanas (4 encontros + entregas técnicas)</div>
+                <div>🎯 Para empreendedores que querem estruturar negócio e presença digital profissional</div>
+                <div>
+                  <strong>Transformação completa que inclui:</strong>
+                  <ul style="margin:8px 0 0; padding-left:18px;">
+                    <li>Diagnóstico completo do negócio e mapeamento do público-alvo</li>
+                    <li>Criação do mapa estratégico da marca (propósito, pilares e diferenciais únicos)</li>
+                    <li>Estruturação da página comercial (layout estratégico + copy de vendas)</li>
+                    <li>Definição da jornada de compra e experiência completa do cliente</li>
+                    <li>Desenvolvimento de branding visual e verbal da marca</li>
+                    <li>Consultoria especializada sobre funil de vendas e automação</li>
+                    <li>4 sessões quinzenais 1:1 + acompanhamento via WhatsApp por 45 dias</li>
+                    <li>Revisões ilimitadas durante o período de mentoria</li>
+                  </ul>
+                  <p style="margin:10px 0 0;"><strong>💡 Diferencial exclusivo:</strong> Mentoria com foco em negócios com propósito + página comercial funcional entregue.</p>
+                </div>
+              </div>
+              <div class="hero-actions" style="margin-top:6px;">
+                <a class="btn btn-primary cta-primary-service" href="#">🚀 Quero começar agora e ver resultados reais!</a>
+                <a class="btn btn-secondary cta-secondary-service" href="#" target="_blank" rel="noopener">💬 Quero conversar com a mentora</a>
+              </div>
+            </article>
+
+            <!-- Páginas/Desenvolvimento -->
+            <article class="service card" data-service="paginas_profissionais">
+              <span class="chip">DESENVOLVIMENTO COMPLETO</span>
+              <h3>🌐 Construção e Estrutura de Página de Vendas, Portfólio ou Plataforma</h3>
+              <p class="muted">Entregar uma presença digital sólida, funcional e com propósito.</p>
+              <div class="stack">
+                <div><strong>Investimento:</strong> R$ 5.049,00</div>
+                <div>⏱️ 15-25 dias úteis (dependendo da complexidade)</div>
+                <div>🎯 Para quem precisa de uma presença digital profissional e funcional</div>
+                <div>
+                  <strong>Desenvolvimento completo que inclui:</strong>
+                  <ul style="margin:8px 0 0; padding-left:18px;">
+                    <li>Reunião inicial para imersão no propósito e briefing detalhado</li>
+                    <li>Criação de identidade visual completa (layout, tipografia, cores e elementos personalizados)</li>
+                    <li>Desenvolvimento da página comercial</li>
+                    <li>Estrutura de copywriting profissional com gatilhos mentais e foco em conversão</li>
+                    <li>Integrações técnicas com plataformas de pagamento, automação e captura de leads</li>
+                    <li>Teste técnico completo e otimização de velocidade</li>
+                    <li>Treinamento personalizado para o cliente gerenciar a plataforma</li>
+                    <li>7 dias de suporte pós-entrega para ajustes e dúvidas</li>
+                    <li>Prazo para entrega de projeto pronto e início de implementação: 25 dias</li>
+                    <li>Acompanhamento direto por 30 dias; acompanhamento por prazo: solicitar orçamento</li>
+                  </ul>
+                  <p style="margin:10px 0 0;"><strong>💡 Bônus premium:</strong> Manual de identidade visual digital + versão responsiva completa + SEO básico configurado</p>
+                </div>
+              </div>
+              <div class="hero-actions" style="margin-top:6px;">
+                <a class="btn btn-primary cta-primary-service" href="#">💻 Quero minha página profissional</a>
+                <a class="btn btn-secondary cta-secondary-service" href="#" target="_blank" rel="noopener">📋 Quero um orçamento personalizado</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Provas sociais -->
+    <section class="section social-proof">
+      <div class="container">
+        <div class="card" style="padding:24px;">
+          <div class="stack-lg">
+            <div class="logo-row" id="logoRow"></div>
+            <div class="testimonials" id="testimonials"></div>
+            <div class="hero-actions">
+              <a id="cta-primary-proof" class="btn btn-primary" href="#">🚀 Quero começar agora</a>
+              <a id="cta-secondary-proof" class="btn btn-secondary" href="#" target="_blank" rel="noopener">💬 Quero conversar com a mentora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section cta-final">
+      <div class="container">
+        <div class="card">
+          <div class="stack">
+            <h2>Você não precisa apenas de uma estratégia. Precisa de um propósito.</h2>
+            <p class="muted" style="margin:0;">Vamos alinhar intenção, mensagem e execução — para você crescer com consistência.</p>
+            <div class="hero-actions">
+              <a id="cta-primary-final" class="btn btn-primary" href="#">🚀 Quero começar agora e ver resultados reais!</a>
+              <a id="cta-secondary-final" class="btn btn-secondary" href="#" target="_blank" rel="noopener">💬 Quero conversar com a mentora e tirar minhas dúvidas primeiro</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <strong>Mentoria — Digital com Propósito</strong>
+          <p class="muted">💡 Cada projeto é acompanhado pessoalmente pela mentora.</p>
+        </div>
+        <div class="footer-col">
+          <strong>Contato</strong>
+          <div class="stack">
+            <a id="footerEmail" href="mailto:clima.social1@gmail.com">clima.social1@gmail.com</a>
+            <a id="footerWhats" href="#" target="_blank" rel="noopener">WhatsApp</a>
+            <span id="footerMentor" class="muted">Mentora: Carilane Lima</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <strong>Informações</strong>
+          <div class="stack">
+            <a id="linkPrivacy" href="#" target="_blank" rel="noopener">Política de Privacidade</a>
+            <a id="linkTerms" href="#" target="_blank" rel="noopener">Termos de Uso</a>
+            <a id="linkRefund" href="#" target="_blank" rel="noopener">Política de Reembolso</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px;" class="muted legal">
+        <span id="copyright">© <span id="year"></span> Mentoria - Digital com Propósito. Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const defaultConfig = {
+      mentor_name: "Carilane Lima",
+      email: "clima.social1@gmail.com",
+      whatsapp_number: "+55 75 98222-4114",
+      background_color: "#faf9f7",
+      primary_color: "#483d8b",
+      secondary_color: "#daa520",
+      text_color: "#2d2d2d",
+      font_family: "Inter",
+      privacy_url: "#",
+      terms_url: "#",
+      refund_url: "#",
+      hero_photo_url: "https://i.postimg.cc/6q1HdvHd/Imagem-do-Whats-App-de-2025-11-27-a(s)-22-52-12-b6adc97b.jpg",
+      mentor_photo_url: "https://i.postimg.cc/rwBPDcrX/243d3bc4-c5c0-49fb-a553-0a2d41d87f1f.jpg",
+      client_logos: [
+        "https://dummyimage.com/120x36/cccccc/ffffff.png&text=Cliente+1",
+        "https://dummyimage.com/120x36/cccccc/ffffff.png&text=Cliente+2",
+        "https://dummyimage.com/120x36/cccccc/ffffff.png&text=Cliente+3",
+        "https://dummyimage.com/120x36/cccccc/ffffff.png&text=Cliente+4"
+      ],
+      testimonials: [
+        { quote: "Clareza de posicionamento em 2 semanas e primeira página convertendo já no lançamento.", name: "Ana Souza", role: "Fundadora, Marca de Bem-Estar", avatar: "https://i.pravatar.cc/80?img=5" },
+        { quote: "Saí do travamento de conteúdo para um calendário que gera leads todos os dias.", name: "Marcos Silva", role: "Consultor de Carreira", avatar: "https://i.pravatar.cc/80?img=12" },
+        { quote: "O funil simples que criamos pagou a mentoria no primeiro mês.", name: "Júlia Santos", role: "Produtora de Cursos", avatar: "https://i.pravatar.cc/80?img=32" }
+      ]
+    };
+
+    // Mensagens WhatsApp: checkout via WhatsApp por pacote
+    const waCheckout = {
+      geral: "Olá, Carilane! Quero iniciar agora. Gerar o link de pagamento e me enviar, por favor, para seguirmos para o próximo passo. ✅",
+      mentoria_criativa: [
+        "Olá, Carilane. Quero dar início à Mentoria Criativa — Criação e Calendário de Conteúdo",
+        "Estou comprometido(a) em evoluir e comunicar minha marca com mais clareza e intenção",
+        "Por favor, gerar o link de pagamento  para avançarmos. ✅"
+      ].join("%0A"),
+      mentoria_estrategica: [
+        "Olá, Carilane! Quero iniciar a Mentoria Estratégica — Negócio e Página Comercial.",
+        "Estou pronto(a) para estruturar meu negócio e minha página comercial com mais clareza e direcionamento.",
+        "Por favor, gere o link de pagamento para avançarmos. ✅"
+      ].join("%0A"),
+      paginas_profissionais: [
+        "Olá, Carilane! Quero iniciar a Construção/ Estrutura de Página de Vendas/Portfólio/Plataforma.",
+        "Estou pronto para elevar meu posicionamento e profissionalizar minha presença digital com propósito, estratégica e integrações.",
+        "Por favor, gere o link de pagamento  para avançarmos. ✅"
+      ].join("%0A"),
+      conversar: "Olá, Carilane! Quero tirar algumas dúvidas rápidas antes de iniciar. Pode me ajudar? 🙂"
+    };
+
+    const elementSdk = {
+      applyTheme(cfg) {
+        document.documentElement.style.setProperty("--bg", cfg.background_color);
+        document.documentElement.style.setProperty("--text", cfg.text_color);
+        document.documentElement.style.setProperty("--primary", cfg.primary_color);
+        document.documentElement.style.setProperty("--secondary", cfg.secondary_color);
+        document.body.style.fontFamily = cfg.font_family + ", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+      },
+      cleanWhats(number) { return (number || "").toString().replace(/\D/g, ""); },
+      waLink(number, message) { const clean = elementSdk.cleanWhats(number); return `https://wa.me/${clean}?text=${message}`; },
+      applyFooter(cfg) {
+        document.getElementById("footerEmail").href = `mailto:${cfg.email}`;
+        document.getElementById("footerEmail").textContent = cfg.email;
+        document.getElementById("footerWhats").href = elementSdk.waLink(cfg.whatsapp_number, encodeURIComponent(waCheckout.conversar));
+        document.getElementById("footerMentor").textContent = `Mentora: ${cfg.mentor_name}`;
+        document.getElementById("linkPrivacy").href = cfg.privacy_url || "#";
+        document.getElementById("linkTerms").href = cfg.terms_url || "#";
+        document.getElementById("linkRefund").href = cfg.refund_url || "#";
+        document.getElementById("year").textContent = new Date().getFullYear();
+      },
+      bindCTAs(cfg) {
+        const number = cfg.whatsapp_number;
+        // CTAs gerais primários agora direcionam ao WhatsApp com mensagem de início (geral)
+        const generalPrimary = ["cta-primary-hero","cta-primary-about","cta-primary-mentor","cta-primary-proof","cta-primary-final"];
+        const generalSecondary = ["cta-secondary-hero","cta-secondary-about","cta-secondary-mentor","cta-secondary-proof","cta-secondary-final"];
+        generalPrimary.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.href = elementSdk.waLink(number, encodeURIComponent(waCheckout.geral));
+        });
+        generalSecondary.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.href = elementSdk.waLink(number, encodeURIComponent(waCheckout.conversar));
+        });
+
+        // CTAs por serviço — mensagem específica de “grande passo” + aviso do link
+        document.querySelectorAll("article.service[data-service]").forEach(card => {
+          const key = card.getAttribute("data-service");
+          const primary = card.querySelector(".cta-primary-service");
+          const secondary = card.querySelector(".cta-secondary-service");
+          if (primary) {
+            const msg = waCheckout[key] || waCheckout.geral;
+            primary.href = elementSdk.waLink(number, msg); // já vem percent-encoded
+          }
+          if (secondary) {
+            secondary.href = elementSdk.waLink(number, encodeURIComponent(waCheckout.conversar));
+          }
+        });
+      },
+      applyImages(cfg) {
+        const hero = document.getElementById("heroPhoto");
+        const mphoto = document.getElementById("mentorPhoto");
+        if (cfg.hero_photo_url && hero) hero.src = cfg.hero_photo_url;
+        if (cfg.mentor_photo_url && mphoto) mphoto.src = cfg.mentor_photo_url;
+      },
+      renderLogos(cfg) {
+        const row = document.getElementById("logoRow");
+        if (!row) return;
+        (cfg.client_logos || []).forEach(src => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = "Logo de cliente/parceria";
+          img.loading = "lazy";
+          row.appendChild(img);
+        });
+      },
+      renderTestimonials(cfg) {
+        const wrap = document.getElementById("testimonials");
+        if (!wrap) return;
+        (cfg.testimonials || []).forEach(t => {
+          const box = document.createElement("div");
+          box.className = "testimonial";
+          box.innerHTML = `
+            <p>"${t.quote}"</p>
+            <div class="who">
+              <img class="avatar" src="${t.avatar}" alt="${t.name}">
+              <div>
+                <strong>${t.name}</strong><br>
+                <span class="muted" style="font-size:13px;">${t.role}</span>
+              </div>
+            </div>
+          `;
+          wrap.appendChild(box);
+        });
+      },
+      init(cfg) {
+        const config = { ...defaultConfig, ...(cfg || {}) };
+        elementSdk.applyTheme(config);
+        elementSdk.applyFooter(config);
+        elementSdk.bindCTAs(config);
+        elementSdk.applyImages(config);
+        elementSdk.renderLogos(config);
+        elementSdk.renderTestimonials(config);
+        return config;
+      }
+    };
+
+    // Inicialização com fotos
+    elementSdk.init({
+      hero_photo_url: defaultConfig.hero_photo_url,
+      mentor_photo_url: defaultConfig.mentor_photo_url
+    });
+  </script>
+</body>
+</html>
